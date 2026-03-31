@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zewnętrzne posty</title>
+</head>
+<body>
+
+<h1>Posty z zewnętrznego API</h1>
+
+<div th:if="${#lists.isEmpty(externalPosts)}">
+    <p>Brak danych lub błąd API</p>
+</div>
+
+<div th:each="post : ${externalPosts}">
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.body}"></p>
+    <hr>
+</div>
+
+<a href="/">Powrót</a>
+
+</body>
+</html>
