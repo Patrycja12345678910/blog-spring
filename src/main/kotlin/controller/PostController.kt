@@ -4,12 +4,23 @@ import com.teska.blog.model.Post
 import com.teska.blog.repository.PostRepository
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.*
 
 @Controller
 class PostController(private val postRepository: PostRepository) {
+
+    @GetMapping("/")
+    fun listPosts(model: Model): String {
+        model.addAttribute("posts", postRepository.findAll())
+        return "index"
+    }
+
+    @GetMapping("/post/{id}")
+    fun postDetails(@PathVariable id: Long, model: Model): String {
+        val post = postRepository.findById(id).orElseThrow()
+        model.addAttribute("post", post)
+        return "detail"
+    }
 
     @GetMapping("/create")
     fun showCreateForm(model: Model): String {

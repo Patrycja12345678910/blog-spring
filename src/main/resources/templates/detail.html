@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post details</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 th:text="${post.title}"></h1>
+
+<p><strong>Author:</strong> <span th:text="${post.author}"></span></p>
+<p><strong>Content:</strong></p>
+<p th:text="${post.content}"></p>
+<p><strong>Published:</strong> <span th:text="${post.publishedAt}"></span></p>
+
+<a href="/">Back to list</a>
+</body>
+</html>
