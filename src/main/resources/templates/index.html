@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Blog</title>
+    <title>My Blog</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<h1>All Posts</h1>
+<div class="container">
+    <div class="top-bar">
+        <h1>My Blog</h1>
+        <a href="/create">+ Add new post</a>
+    </div>
 
-<a href="/create">Add new post</a>
+    <p class="small-text">Simple blog application in Spring Boot, Kotlin and Thymeleaf.</p>
 
-<ul>
-    <li th:each="post : ${posts}">
+    <div th:if="${#lists.isEmpty(posts)}">
+        <p>No posts yet. Add your first post.</p>
+    </div>
+
+    <div th:each="post : ${posts}" class="post-item">
         <a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.title}"></a>
-        - <span th:text="${post.author}"></span>
-    </li>
-</ul>
-
+        <div class="small-text">
+            Author: <span th:text="${post.author}"></span>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -3,15 +3,26 @@
 <head>
     <title>Post details</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<h1 th:text="${post.title}"></h1>
+<div class="container">
+    <h1 th:text="${post.title}"></h1>
 
-<p><strong>Author:</strong> <span th:text="${post.author}"></span></p>
-<p><strong>Content:</strong></p>
-<p th:text="${post.content}"></p>
-<p><strong>Published:</strong> <span th:text="${post.publishedAt}"></span></p>
+    <p class="small-text">
+        Author: <span th:text="${post.author}"></span>
+    </p>
 
-<a href="/">Back to list</a>
+    <p class="small-text">
+        Published: <span th:text="${post.publishedAt}"></span>
+    </p>
+
+    <hr>
+
+    <p th:text="${post.content}"></p>
+
+    <br>
+    <a href="/">← Back to list</a>
+</div>
 </body>
 </html>

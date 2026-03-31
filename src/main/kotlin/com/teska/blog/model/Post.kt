@@ -6,12 +6,12 @@ import java.time.LocalDateTime
 @Entity
 data class Post(
     @Id
-    @Lob
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
     var title: String = "",
-    var content: String = ""
+    @Lob
+    var content: String = "",
     var author: String = "",
 
     var createdAt: LocalDateTime = LocalDateTime.now(),
