@@ -15,7 +15,7 @@ class PostModelTest {
             author = "Patrycja"
         )
 
-        assertEquals("Test title", post.title)
+        assertEquals("ZLY TYTUL", post.title)
         assertEquals("Test content", post.content)
         assertEquals("Patrycja", post.author)
     }
